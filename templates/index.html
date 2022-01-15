@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Character Count</title>
+
+	<link rel="stylesheet" type="text/css" href="{{url_for('static',filename='css/style.css')}}">
+
+
+</head>
+
+
+<body>
+
+	<div class = 'container'>
+		
+		<div class = "header">
+			
+			<h1>Character Count</h1>
+			<h2>carlxo</h2>
+			
+
+
+
+		</div>
+		<div class = "content">
+			<form action= "{{url_for('home')}}"  method="post">
+			<textarea placeholder="Start typing or paste to begin !" id = "input-box" name="name"></textarea>
+
+
+
+
+			<input type="submit" onclick="submit()">
+
+			</form>
+		</div>
+
+		<div class = "footer">
+			
+
+			<!-- <img src="/static/images/logo.png">
+			
+			<div>
+			<br><br><br>
+			<h2>Carl Mascarenhas</h2>
+
+			<h3>Facebook </h3>
+			<h3>Instagram</h3>
+			<br><br><br>
+			</div> -->
+
+		</div>
+		<div class = "density">
+
+			<h2>Word density</h2>
+
+			<div class= "box">
+				
+				{% if data %}
+				{% for item in word_data %}
+				<div class= "word">
+					<h3>{{item}}</h3>
+					<h3>{{word_data[item].percentage}}%</h3>
+					<h3 class = "counter">{{word_data[item].counter}}</h3>
+				</div>
+				{% endfor %}
+				{% endif %}
+				
+				
+
+			</div>
+
+		</div>
+		<div class = "count-box">
+			
+			
+
+				<div>
+					<h3>Punctuations</h3>
+					{% if data %}
+					<h4>{{data.punctuations}}</h4>
+					{% endif %}
+				</div>
+				<div>
+					<h3>words</h3>
+					{% if data %}
+					<h4>{{data.total_words}}</h4>
+					{% endif %}
+				</div>
+				<div>
+					<h3>Spaces</h3>
+					{% if data %}
+					<h4>{{data.spaces}}</h4>
+					{% endif %}
+				</div>
+				<div>
+					<h3>Uppercase</h3>
+					{% if data %}
+					<h4>{{data.upper_char}}</h4>
+					{% endif %}
+				</div>
+
+				<div>
+					<h3>Lowercase</h3>
+					{% if data %}
+					<h4>{{data.lowercase_char}}</h4>
+					{% endif %}
+				</div>
+
+			
+
+
+		</div>
+
+
+	</div>
+
+
+<script>
+	
+	function submit() {
+		document.getElementById("input-box").value =="carl";
+			
+		
+	}
+
+
+
+</script>
+
+
+</body>
+
+
+
+
+
+
+</html>
